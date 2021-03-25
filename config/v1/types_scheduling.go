@@ -70,7 +70,7 @@ type SchedulerSpec struct {
 	MastersSchedulable bool `json:"mastersSchedulable"`
 }
 
-// +kubebuilder:validation:Enum="";LowNodeUtilization;HighNodeUtilization;NoScoring;TargetLoadPacking
+// +kubebuilder:validation:Enum="";LowNodeUtilization;HighNodeUtilization;NoScoring;TargetLoadPacking;LoadVariationRiskBalancing
 type SchedulerProfile string
 
 var (
@@ -89,6 +89,10 @@ var (
 	// TargetLoadPacking defines a scheduling profile which tries to provide load aware scheduling
 	// to ensure all nodes have around the same targeted CPU utilization .
 	TargetLoadPacking SchedulerProfile = "TargetLoadPacking"
+
+	// LoadVariationRiskBalancing defines a scheduling profile which tries to provide load aware scheduling
+	// to ensure all nodes' load variations are bounded within the capacity with a certain confidence.
+	LoadVariationRiskBalancing SchedulerProfile = "LoadVariationRiskBalancing"
 )
 
 type SchedulerStatus struct {

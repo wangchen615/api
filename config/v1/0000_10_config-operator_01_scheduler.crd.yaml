@@ -101,6 +101,7 @@ spec:
                 - HighNodeUtilization
                 - NoScoring
                 - TargetLoadPacking
+                - LoadVariationRiskBalancing
           status:
             description: status holds observed values from the cluster. They may not
               be overridden.
